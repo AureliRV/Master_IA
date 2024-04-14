@@ -1,6 +1,7 @@
 #data manipulation
 import pandas as pd
 import numpy as np
+
 #data visualitzation
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
@@ -14,9 +15,9 @@ plt.style.use("ggplot")
 from sklearn.datasets import load_wine
 print("Helo master!")
 
-#noms = pd.read_csv("nba.csv", index_col='Name')
-#primer = noms.loc["Avery Bradley"]
-#print(primer)
+noms = pd.read_csv("nba.csv", index_col='Name')
+primer = noms.loc["Avery Bradley"]
+print(primer)
 
 #cargando wine dataset
 wine = load_wine()
