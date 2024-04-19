@@ -136,7 +136,8 @@ bp = ax.boxplot(data)
 plt.show()'''
 
 #Test personal con data de nba.csv
-df = pd.read_csv('C:/Users/Aureli/Dropbox/PC (2)/Documents/Git_works_MASTER_AI/Master_IA/EDA/nba.csv', index_col=('Team'))
+#df = pd.read_csv('C:/Users/Aureli/Dropbox/PC (2)/Documents/Git_works_MASTER_AI/Master_IA/EDA/nba.csv', index_col=('Team'))
+#df = pd.read_csv('C:/Users/Aureli/Dropbox/PC (2)/Documents/Git_works_MASTER_AI/Master_IA/EDA/nba.csv')
 #print('DF - INFO con df.info')
 #print(df.info)
 #print('DF - INFO con df.info(Texto-columna)')
@@ -147,8 +148,8 @@ df = pd.read_csv('C:/Users/Aureli/Dropbox/PC (2)/Documents/Git_works_MASTER_AI/M
 #print(df.head(5))
 #print('DF TAIL con df.tail(numero de lineas)')
 #print(df.tail(5))
-equipos = df.loc['Utah Jazz']
-otroeq = df.loc['Boston Celtics']
+#equipos = df.loc['Utah Jazz']
+#otroeq = df.loc['Boston Celtics']
 #print(equipos)
 #plt.hist(equipos['Age'])
 #plt.boxplot(equipos['Age'])
@@ -174,6 +175,12 @@ plt.ylabel('Salario en $ x10000')
 plt.title('Diagrama de puntos para Salarios y edades Entre Boston C. y Utah Jazz')
 plt.show()'''
 
+'''#Importar estilos:
+from matplotlib import style
+
+#plt.style.use('Solarize_Light2')
+#plt.style.use('ggplot', 'dark_background')
+plt.style.use('dark_background')
 #Diagrama de Densidad
 ser = pd.Series(np.random.rand(1000)) 
 #ser.plot.kde()
@@ -183,5 +190,35 @@ ser = pd.Series(np.random.rand(1000))
 ser1 = equipos['Age']
 #print(ser1)
 #ser1.plot.kde()
-df.plot.kde()
+#Sytyle ggplot
+data = np.random.randn(50)
+#plt.plot(data, linestyle=":", linewidth=2)
+plt.plot(data, linestyle="-", linewidth=2)
+#df.plot.kde()
 plt.show()
+#print(data)'''
+
+##Gráficos 3D
+##Lienzo vacío. Creamos base del graf.
+#fig = plt.figure()
+##Definimos EJES como 3d.
+#ax = plt.axes(projection='3d')
+##creamos datos para 3 ejes
+#x=[0,1,2,3,4,5,6]
+#y=[0,1,4,9,16,25,36]
+#z=[0,1,4,9,16,25,36]
+#ax.plot3D(x,y,z,'red')
+#ax.scatter3D(x,y,z,c=y,cmap='plasma')
+#plt.show()
+
+#Seaborn y sus cosas. Importamos.
+import seaborn as sns
+'''#estilo blanco:
+#sns.set(style='white')
+#Creamos data
+rs = np.random.RandomState(10)
+d = rs.normal(size=50)
+pd.option_context('mode.use_inf_as_na', True)
+sns.displot(d, kde=True, color='g')''' #no me ha funcionado...
+#Gráfico de linia, leiendo Data frame d nba.csv de màs arriba.
+#sns.lineplot( df['Age'], df['Weight'])
