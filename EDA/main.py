@@ -15,9 +15,9 @@ plt.style.use("ggplot")
 from sklearn.datasets import load_wine
 print("Helo master!")
 
-noms = pd.read_csv("nba.csv", index_col='Name')
-primer = noms.loc["Avery Bradley"]
-print(primer)
+#noms = pd.read_csv("nba.csv", index_col='Name')
+#primer = noms.loc["Avery Bradley"]
+#print(primer)
 
 #cargando wine dataset
 wine = load_wine()
@@ -90,5 +90,5 @@ df["target"] = wine.target
 #HeatMap de correlación de variables. 
 corrmat = df.corr()
 #print(corrmat)
-#heatmap = sns.heatmap(corrmat,cbar=True, annot=True, square=True, fmt='.2f',annot_kws={'size':8}, yticklabels=df.columns, xticklabels=df.columns, cmap='Spectral_r')
-#plt.show()
+heatmap = sns.heatmap(corrmat,cbar=True, annot=True, square=True, fmt='.2f',annot_kws={'size':8}, yticklabels=df.columns, xticklabels=df.columns, cmap='Spectral_r')
+plt.show()

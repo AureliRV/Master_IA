@@ -112,7 +112,7 @@ plt.yticks(np.arange(0,90,15))
 plt.legend((p1[0],p2[0]), ('chicos', 'chicas'))
 plt.show()'''
 
-'''#Histpgrama, indica la frecuéncia de repetición de un valor.
+'''#Histpograma, indica la frecuéncia de repetición de un valor.
 #Valores de Y.
 y = [10,5,8,4,2,3,2,4,5,6,7,7,7,7]
 plt.hist(y)
