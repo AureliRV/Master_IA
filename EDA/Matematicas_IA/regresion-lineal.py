@@ -93,7 +93,7 @@ plt.show()'''
 #Regresión No Lineal. 
 
 from sklearn.preprocessing import PolynomialFeatures
-#Generar Datos.
+'''#Generar Datos.
 np.random.seed(0)
 X = np.linspace(0,5,100)
 print("-----Datos de X-----")
@@ -125,5 +125,81 @@ plt.plot(X, y_pred, color='Red', alpha= 0.5, linewidth= 2, label='Modelo Predicc
 plt.xlabel('Variable Independiente (X)')
 plt.ylabel('Variable Dependiente (y)')
 plt.title('Regresión NO Lineal (Polinómica)')
+plt.show()
+plt.legend()'''
+
+'''#Generamos datos sintéticos Para una Regresión lineal.
+np.random.seed(0)
+X = 2* np.random.rand(100,1)
+print('----Valor de X Variable Predictora-----')
+print(X)
+y = 4 +3*X + np.random.rand(100,1)
+print('----Valor de y Variable Objetivo-----')
+print(y)
+#Crear y entrenar el modelo de regresión lineal.
+model = LinearRegression()
+model.fit(X,y)
+#Parametros del modelo:
+intercept = model.intercept_[0]
+slope = model.coef_[0][0]
+#Imprimir parámetros del modelo:
+print('Intercepto: ', intercept)
+print('Pendiente: ', slope)
+#Visualizar datos.
+plt.scatter(X, y, color='Blue', label='Datos ')
+plt.plot(X, model.predict(X), color='Red', alpha= 0.5, linewidth= 2, label='Modelo Predicción Regresión Lineal')
+plt.xlabel('Variable Predictora (X)')
+plt.ylabel('Variable Objetivo')
+plt.title('Regresión Lineal')
 plt.legend()
+plt.show()'''
+
+#Generamos datos sinteticos en forma de cluster.
+np.random.seed(0)
+cluster_1 = np.random.randn(100,2) + np.array([2,2]) #Cluster centrado en 2,2
+cluster_2 = np.random.randn(100,2) + np.array([-2,-2]) #Cluster centrado en -2,-2
+#Vemos lo generado:
+print("-----Cluster 1-----")
+print(cluster_1)
+print("-----Cluster 2-----")
+print(cluster_2)
+
+#Gráfica de los clustrers
+
+ax = plt.subplots()
+plt.figure(figsize=(12,9))
+#plt.scatter(cluster_1[:,0], cluster_1[:,1], color='blue', label='Cluster 1')
+plt.quiver(cluster_1[0], cluster_1[0], angles='xy', scale_units='xy', scale=1, color='blue', label='Cluster 1')
+#plt.scatter(cluster_2[:,0], cluster_2[:,1], color='red', label='Cluster 2')
+plt.quiver(cluster_2[0], cluster_2[0], angles='xy', scale_units='xy', scale=1, color='red', label='Cluster 2')
+
+#Vemos lo generado:
+#plt.grid(True)
+#plt.show()
+
+#Sumar un vector de (1,1) al cluster_1:
+vector1_1 = np.array([1,1])
+print("-----Vector 1,1-----")
+print(vector1_1)
+#Suma de cluster y vector
+cluster1_sumado = cluster_1 + vector1_1
+
+plt.quiver(cluster1_sumado[0],cluster1_sumado[0], color='green', label='Cluster 1 + Vector 1,1')
+print("-----Cluster+ Vector-----")
+print(cluster1_sumado)
+#Variaciones: Resto Clusteres 2-1(+vector)
+clusters_restados = cluster_2 - cluster1_sumado
+print("-----Custer2 - (Cluster1 + Vector)-----")
+print(clusters_restados)
+plt.quiver(clusters_restados[0],clusters_restados[0], color='yellow', label='Cluster 2 - (Cluster 1 + Vector 1,1)')
+
+#Cambiamos de plt.scatter a plt.quiver para mostrar Lineas de Vector###
+
+#Vemos lo generado:
+plt.title('Suma de Clusters para Machine learnig')
+plt.xlabel('Featue 1')
+plt.ylabel('Featue 2')
+plt.legend()
+plt.grid(True)
+#plt.axis('equal')
 plt.show()
