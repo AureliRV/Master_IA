@@ -171,7 +171,7 @@ plt.tight_layout()
 plt.show()'''
 
 #Sistemas lineales 2 incógnitas.
-#Creamos matrices
+'''#Creamos matrices
 mA = np.array([[2,3],[5,4]])
 mB = np.array([6,10])
 print("-----Matriz mA-----")
@@ -200,10 +200,76 @@ print(y2)
 plt.plot(x_vals, y1, label='2x + 3y = 6')
 plt.plot(x_vals, y2, label='5x + 4y = 10')
 #Gráfico de la solución.
-plt.plot(x[0],[1],'ro',label='Solución')
+plt.plot(x[0],x[1],'ro',label='Solución')
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.title('Solución de un sistema de ecuaciones lineales')
 plt.legend()
 plt.grid(True)
+plt.show()'''
+
+#Descomposición de matrices en SVD (Singular Valor Desomposition)
+
+'''matriz = np.array([[1,2,3],
+                   [4,5,6],
+                   [7,8,9]])
+print("-----La matriz-----")
+print(matriz)
+#Realizar la descomposición en SVD
+S, U, Vt = np.linalg.svd(matriz)
+print("-----Descomposición en Valores Singulares de la matriz-----")
+print("-----Valores Singulares \"S\"-----")
+print(S)
+print("-----Valores Singulares \"U\"-----")
+print(U)
+print("-----Valores Singulares \"Vt\"-----")
+print(Vt)
+#Reconstruir la Matrix a partir de SVD.
+matriz_Rec = np.dot(S, np.dot(np.diag(U), Vt))  # En el temario Està U primero  y S y Vt y no funciona. Da error,
+print("-----Matriz Reconstruida-----")
+print(matriz_Rec)
+#Visualizar la matriz otriginal y la reconstuida.
+plt.figure(figsize=(10,5))
+#Matriz original
+plt.subplot(1,2,1)
+plt.imshow(matriz, cmap='viridis', interpolation='nearest')
+plt.title('Matriz Origial')
+plt.colorbar()
+#Matriz Reconstruida
+plt.subplot(1,2,2)
+plt.imshow(matriz_Rec , cmap='viridis', interpolation='nearest')
+plt.title('Matriz Reconstruida')
+plt.colorbar()
+plt.tight_layout()
+plt.show()'''
+
+#TENSORES.
+# Un Tensor de grado 0 es un numero (escalar) (1).
+# un Tensod de grado 1 es un vector (1,3).
+# un Tensod de grado 2 es una matriz([1,2,3],[4,5,6]).
+# un Tensod de grado 3 es una matriz de matrices, ([[1,2,3],[4,5,6]],[[7,8,9],[10,11,12]]) y así sucesivamente.
+
+#Creamos Tensor.
+
+tensor = np.arange(27).reshape(3,3,3)
+print("-----Tensor-----")
+print(tensor)
+tensor_r = tensor.reshape(3,3,3)
+print("-----Tensor de 3x3-----")
+print(tensor_r)
+#Configuramos la grafica.
+from mpl_toolkits.mplot3d import axes3d
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111, projection= '3d')
+#Graficar el tensor.
+for i in range(tensor_r.shape[0]) :
+    for j in range(tensor_r.shape[1]) :
+        for k in range(tensor_r.shape[2]) :
+            ax.scatter(i, j, k, c='b', marker='o')
+            ax.text(i,j,k,f'{tensor_r[i,j,k]}', color= 'black')
+#Congigurar las etiquetas de los ejes.
+ax.set_xlabel('Eje 1')
+ax.set_ylabel('Eje 2')
+ax.set_zlabel('Eje 3')
+plt.title('Tensor de Orden 3')
 plt.show()
