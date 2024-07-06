@@ -70,7 +70,7 @@ plt.show()
 
 #Coheficientes de la regresión.
 print('Coheficiente de intersección (beta_0): ', model.intercept_)
-print('Coheficiente de pendiente (betai0): ', model.coef_)
+print('Coheficiente de pendiente (beta_0): ', model.coef_)
 
 #Calcular el coheficiente de determinación (R^2).
 r_squared = model.score(X,y)
@@ -197,8 +197,8 @@ plt.quiver(clusters_restados[0],clusters_restados[0], color='yellow', label='Clu
 
 #Vemos lo generado:
 plt.title('Suma de Clusters para Machine learnig')
-plt.xlabel('Featue 1')
-plt.ylabel('Featue 2')
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
 plt.legend()
 plt.grid(True)
 #plt.axis('equal')

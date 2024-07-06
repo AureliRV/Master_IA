@@ -55,5 +55,5 @@ pos = nx.circular_layout(grafo) #Posiciones de los nodos
 nx. draw(grafo, pos, with_labels= True, node_size=7000, node_color='Skyblue', font_size= 10, arrows= True)
 labels =nx.get_edge_attributes(grafo,'weight')
 nx.draw_networkx_edge_labels(grafo,pos, edge_labels=labels)
-plt.title('Modelo Markov de 5 estdos')
+plt.title('Modelo Markov de 5 estados')
 plt.show()

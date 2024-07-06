@@ -76,7 +76,7 @@ plt.text(0.5, 2,'Area bajo la curva ={:.2f}x'.format(integral), fontsize=12)
 plt.show()'''
 
 #Calculo de Area de Señal-
-#Creamos la señal.
+'''#Creamos la señal.
 t = np.linspace(0, 10, 1000) #tiempo
 frecuencia = 2 #frecuencia de la señal
 señal = np.sin(2*np.pi*frecuencia*t)
@@ -106,5 +106,64 @@ plt.ylabel('Amplitud')
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
-plt.show()
+plt.show()'''
 
+#Optimización de calculo.
+import pulp
+#El problema del transporte
+#Creamos los Datos del problema.
+oferta = np.array([100, 150, 200])
+print("-----Valores de Oferta----")
+print(oferta)
+demanda = np.array([120, 180, 100, 150])
+print("-----Valores de Demanda----")
+print(demanda)
+costos = np.array([[2,3,5,2],
+                   [4,1,6,3],
+                   [7,2,4,5]])
+print("-----Valores de Costos----")
+print(costos)
+costos_ag = np.random.randint(1, 9, size=(3, 4))
+print("-----Valores de Costos Auto-generados----")
+print(costos_ag)
+#Definir el problema de optimización de transporte.
+prob = pulp.LpProblem("Problema-de-Transporte", pulp.LpMinimize)
+
+#Variables de decision.
+rutas = [(i, j) for i in range(len(oferta)) for j in range(len(demanda))]
+print("-----Valores de Rutas----")
+print(rutas)
+candidad_enviada = pulp.LpVariable.dicts("Cantidad_Envidada", (range(len(oferta))), (range(len(demanda))), cat='Integer')
+print("-----Valores de Cantidad Enviada----")
+print(candidad_enviada)
+#Funcion objetivo
+prob += pulp.lpSum(candidad_enviada[i][j]*costos[i][j] for (i,j) in rutas)
+#Restricciones.
+#Restricciones de la oferta.
+for i in range(len(oferta)):
+    prob += pulp.lpSum(candidad_enviada[i][j] for j in range(len(demanda)))<= oferta[i]
+#Restricciones de la demanda.
+for j in range(len(demanda)):
+    prob += pulp.lpSum(candidad_enviada[i][j] for i in range(len(oferta)))>= demanda[j]
+#Resolver el problema
+prob.solve()
+
+#Imprimir resultados
+print("Estado:", pulp.LpStatus[prob.status])
+print("Costo total del Transporte:", pulp.value(prob.objective))
+print("Asignaciones")
+for i in range(len(oferta)):
+    for j in range(len(demanda)):
+        if candidad_enviada[i][j].varValue >0 :
+            print(f"De la Fabrica {i+1} al Almacen {j+1}: {candidad_enviada[i][j].varValue}")
+
+#Grafico del resultado.
+asignaciones = np.array([[candidad_enviada[i][j].varValue for j in range(len(demanda))] for i in range(len(oferta))])
+plt.imshow(asignaciones, cmap='Blues', interpolation='nearest')
+plt.colorbar(label='Cantidad enviada')
+plt.xticks(np.range(len(demanda)), [f"Almacen {j+1}" for j in range(len(demanda))])
+plt.yticks(np.range(len(oferta)), [f"Fabrica {i+1}" for i in range(len(oferta))])
+plt.title("Asignaciones de Transporte")
+plt.xlabel("Almacenes")
+plt.ylabel("Fabricas")
+plt.show()

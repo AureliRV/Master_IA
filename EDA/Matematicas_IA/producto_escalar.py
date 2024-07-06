@@ -88,7 +88,7 @@ print(c.shape)
 print("-----Shape de la Matriz a (traspuesta!)-----")
 print(d.shape)
 
-#OPerar con una matriz
+#Operar con una matriz
 A = np.array([[1,2],[3,4],[5,6]])
 B = np.array([[2,0],[1,3]])
 print("-----Matriz A-----")

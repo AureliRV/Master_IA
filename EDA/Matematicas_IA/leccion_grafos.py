@@ -22,7 +22,7 @@ grafo_1 = Grafo(edges,n)
 
 #Sistema Iterativo a partir del Grafo inicial
 
-def DFS_iterativo (mi_grafo, v):
+'''def DFS_iterativo (mi_grafo, v):
     #Crea pila de nodos pendientes de recorer LIFO
     pila = deque()
     #Crea pila de nodos booleanso desbuiertos, todos en False.
@@ -75,4 +75,36 @@ def BFS_iterativo (mi_grafo, v) :
     print("\n")
 
 print('--------Brandth-First Search_iterativo-----------')
-BFS_iterativo(grafo_1,0)
+BFS_iterativo(grafo_1,0)'''
+
+#ACTIVIDAD_1:
+#Creamos una clase Obj GrafoRecusivo
+class Grafo_R :
+    #Constructor
+    def __init__(self, edges, n):
+        #Lista de listas de adyacencias
+        self.adjList = [[] for _ in range(n)]
+        self.n = n
+        #Inicializamos la lista de voleanos para rastreas los vertices visitados
+        self.visitados = [False] * n
+        #Se inicializa una lista para almacenar el orden de recorrido.
+        self.orden = []
+        #Agregamos aristas al Grfo no dirigido
+        for (origen, destino) in edges:
+            self.adjList[origen].append(destino)
+            self.adjList[destino].append(origen)
+
+def DFS_recursivo(grafo, v):
+    #Marcar el nodo visitado.
+    grafo.visitados[v] = True
+    #Agregamos el nodo al orden recorrido.
+    grafo.orden.append(v)
+    #recorrer los vertices adyacentes al nodo actual
+    for adyacente in grafo.adjList[v]:
+        if not grafo.visitados[adyacente]:
+            #si el vertice adyacente no ha sido visitado,
+            #realiar DFS_recursivo desde ese vertice.
+            DFS_recursivo(grafo,adyacente)
+
+print('--------Deep-First Search_Recursivo-----------')
+DFS_recursivo(grafo_1,0)
