@@ -1,13 +1,14 @@
 from collections import deque
 
 #Creamos una clase Obj Grafo
-class Grafo :
+
+'''class Grafo :
     #Constructor
     def __init__(self, edges, n):
         #Lista de listas de adyacencias
         self.adjList = [[] for _ in range(n)]
         self.n = n
-        #Agregamos aristas al Grfo no dirigido
+        #Agregamos aristas al Grafo no dirigido
         for (origen, destino) in edges:
             self.adjList[origen].append(destino)
             self.adjList[destino].append(origen)
@@ -21,8 +22,7 @@ grafo_1 = Grafo(edges,n)
 
 
 #Sistema Iterativo a partir del Grafo inicial
-
-'''def DFS_iterativo (mi_grafo, v):
+def DFS_iterativo (mi_grafo, v):
     #Crea pila de nodos pendientes de recorer LIFO
     pila = deque()
     #Crea pila de nodos booleanso desbuiertos, todos en False.
@@ -106,5 +106,16 @@ def DFS_recursivo(grafo, v):
             #realiar DFS_recursivo desde ese vertice.
             DFS_recursivo(grafo,adyacente)
 
+
+#Aristas del Grafo
+edges = [(0,1), (0,2), (0,3), (1,4), (1,5), (1,6), (2,7), (2,8), (2,9), (3,10),(6,11)]
+#Nodos del grafo
+n = 12
+#Grafo
+grafo_1 = Grafo_R(edges,n)
+
+
+
 print('--------Deep-First Search_Recursivo-----------')
-DFS_recursivo(grafo_1,0)
+DFS_recursivo(grafo_1, 0)
+print(f"Orden: {grafo_1.orden}")
