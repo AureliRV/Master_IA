@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0d1b2a;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  margin-top: 10px;
+  background-color: #1b263b;
+  text-align: center;
+  padding: 5px;
+  width:800px;
+  margin:auto;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.contenidor-central {
+  background-color: #1b263b;
+  text-align: center;
+  padding: 25px;
+  width:800px;
+  height:750px;
+  margin:auto;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+h1, h2, p {
+  color: white;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+p {
+  font-size: 1em;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+h3 {
+  font-size: smaller;
+}
+
+ /*formulari*/
+
+  .upload-box {
+            width: 400px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #1b263b;
+            border: 2px dashed #778da9;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .upload-box.dragover {
+            background-color: #415a77;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-upload {
+            background-color: #415a77;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #e63946;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }

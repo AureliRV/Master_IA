@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+    <style>
+        body {
+            text-align: center;
+            padding: 40px;
+        }
+        img {
+            max-width: 400px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Resultado de la Predicción</h1>
+
+    <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Imagen subida">
+
+    <h2>{{ result }}</h2>
+
+    <a href="{{ url_for('index') }}">
+        <button>Subir otra imagen</button>
+    </a>
+
+</body>
+</html>
