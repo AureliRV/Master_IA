@@ -2,31 +2,27 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Resultado</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
-    <style>
-        body {
-            text-align: center;
-            padding: 40px;
-        }
-        img {
-            max-width: 400px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-    </style>
+    <title>Resultado</title>
 </head>
 <body>
-
-    <h1>Resultado de la Predicción</h1>
-
-    <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Imagen subida">
-
-    <h2>{{ result }}</h2>
-
-    <a href="{{ url_for('index') }}">
-        <button>Subir otra imagen</button>
-    </a>
-
+    <div>
+        <h1>IDENTIFICADOR DE NUDIBRANQUIOS v1.0</h1>
+    </div>
+    <div class="contenidor-central">
+        <p class="centrado"><h1>Resultado de la Predicción</h1>
+        <b><i aria-setsize="12">imagen </i></b>
+        <h2>{{ result }}</h2>
+        </p>
+        
+        <p class="centrado">
+        <a href="{{ url_for('inicio') }}">
+          <button>Subir otra imagen</button>
+          </a>
+        </p>
+    </div>
+    <div>
+    <h3> Trabajo de fin de máster de Aureli RV</h3>
+    </div>
 </body>
 </html>

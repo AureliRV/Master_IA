@@ -3,29 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
-    <title>IDENTIFICADOR DE NUDIBRANQUIS</title>
+    <title>IDENTIFICADOR DE NUDIBRANQUIOS</title>
 </head>
 <body>
     <div>
-        <h1>IDENTIFICADOR DE NUDIBRANQUIOS</h1>
+        <h1>IDENTIFICADOR DE NUDIBRANQUIOS v1.0</h1>
     </div>
     <div class="contenidor-central">
-        <p>Bienvenido al Proyecto de Identificación de Nudibranquios con Inteligencia Artificial
-Esta aplicación utiliza tecnología de inteligencia artificial para identificar especies de nudibranquios a partir de fotografías. Nuestro sistema emplea una red neuronal convolucional, especialmente diseñada para el reconocimiento y clasificación de imágenes, que ha sido entrenada con un conjunto de datos que incluye inicialmente 15 especies diferentes.
-El proyecto está en constante evolución: conforme descubramos y documentemos nuevas especies, ampliaremos nuestra base de datos y actualizaremos el modelo para ofrecer identificaciones cada vez más precisas y completas.
-¿Cómo funciona?
-Simplemente sube una fotografía del nudibranquio que deseas identificar y nuestro sistema analizará la imagen para proporcionarte la identificación más probable de la especie.
+        <p>Bienvenido al Proyecto de Identificación de Nudibranquios con Inteligencia Artificial.</p>
+        <p>
+            
+            Esta aplicación utiliza tecnología de inteligencia artificial para identificar especies de nudibranquios a partir de fotografías. Nuestro sistema emplea una red neuronal convolucional, especialmente diseñada para el reconocimiento y clasificación de imágenes, que ha sido entrenada con un conjunto de datos que incluye inicialmente 15 especies diferentes.
+            El proyecto está en constante evolución: conforme descubramos y documentemos nuevas especies, ampliaremos nuestra base de datos y actualizaremos el modelo para ofrecer identificaciones cada vez más precisas y completas.
+        </p>
+        <p>¿Cómo funciona?</p>
+        <p>Simplemente sube una fotografía del nudibranquio que deseas identificar y nuestro sistema analizará la imagen para proporcionarte la identificación más probable de la especie.
         </p>
         <p class="upload-box" id="drop-area">
     <h2>Sube tu imagen</h2>
-    <p>Puedes arrastrar el archivo o seleccionarlo manualmente</p>
-            <form id="upload-form" action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
-                <label for="file-upload" class="custom-file-upload">Seleccionar Imagen</label>
-                <input id="file-upload" type="file" name="file" accept="image/*" required>
+    <p>*Puedes arrastrar el archivo o seleccionarlo manualmente</p>
+           <form id="upload-form">
                 <br>
                 <button type="submit">Enviar</button>
             </form>
-        </p>
+        <a href="{{ url_for('resultado') }}"><b>Test a Resultado</b></a>
+    </p>
     </div>
     <div>
     <h3> Trabajo de fin de máster de Aureli RV</h3>

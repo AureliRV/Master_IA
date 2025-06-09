@@ -21,6 +21,10 @@ div {
   margin-bottom: 10px;
 }
 
+.centrado {
+  text-align: center;
+}
+
 .contenidor-central {
   background-color: #1b263b;
   text-align: center;
